@@ -11,11 +11,21 @@ function createDoggerBio(DOG) {
   const BIO_TITLE_H3 = document.createElement("h3");
   BIO_TITLE_H3.textContent = "Bio";
   const BIO_TEXT_P = document.createElement("p");
-  BIO_TEXT_P.textContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
+  BIO_TEXT_P.textContent = DOG.bio;
   DOG_BIO_DIV.appendChild(BIO_TITLE_H3);
   DOG_BIO_DIV.appendChild(BIO_TEXT_P);
   return DOG_BIO_DIV;
+}
+
+function createNaughtyButton(DOG) {
+  const IS_NAUGHTY_EM = document.createElement("em");
+  IS_NAUGHTY_EM.textContent = "Is naughty?";
+  const IS_NAUGHTY_BOOL_P = document.createElement("p");
+  if (DOG.isGoodDog == true) {
+    IS_NAUGHTY_BOOL_P.textContent = " No!";
+  } else {
+    IS_NAUGHTY_BOOL_P.textContent = " Yes!";
+  }
 }
 
 function createDoggerCard(DOG) {
