@@ -56,6 +56,8 @@ function createDoggerCard(dog) {
   );
 }
 
+function addDogToArray(object) {}
+
 function createDoggerButton(dog) {
   const dogButtonLi = document.createElement("li");
   dogButtonLi.classList.add("dogs-list__button");
@@ -111,4 +113,29 @@ DOG_ADD_BUTTON.addEventListener("click", function () {
   DOGS_CARD_SECTION.innerHTML = "";
   const form = createForm();
   DOGS_CARD_SECTION.appendChild(form);
+  const nameInput = document.querySelector("#name");
+  const imgInput = document.querySelector("#image");
+  const bioInput = document.querySelector("#bio");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    console.log("idk");
+
+    DOGS_LIST_UL.innerHTML = `<li class="dogs-list__button dogs-list__button--add">+</li>`;
+
+    const newDog = {
+      isGoodDog: true,
+    };
+
+    newDog.name = nameInput.value;
+    newDog.image = imgInput.value;
+    newDog.bio = bioInput.value;
+
+    data.unshift(newDog);
+
+    for (let i = 0; i < data.length; i++) {
+      const dog = data[i];
+      createDoggerButton(dog);
+    }
+  });
 });
